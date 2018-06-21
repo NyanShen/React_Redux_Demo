@@ -7,11 +7,13 @@ import configureStore from "reduxModel/configureStore";
 
 import Login from "page/login/Login";
 
+const store = configureStore();
+
 class App extends React.Component{
 
     render() {
         return (
-            <Provider store={configureStore}>
+            <Provider store={store}>
                 <section>
                     <Router>
                         <Switch>

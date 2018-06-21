@@ -4,10 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    entry: ['./src/app.js'],
+    entry: ['./src/App.js'],
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'js/app.js'
+        publicPath: "dist",
+        filename: 'js/App.js'
     },
     module: {
         rules: [
@@ -91,8 +92,9 @@ module.exports = {
         port: '8088', //设置端口号
                       // 路径的配置
         historyApiFallback: {
-            index: '/dist/index.html'
+            index: '/dist'
         },
+        open: true,
         proxy: {
             '/react-redux-api/*': {
                 target: 'http://localhost:3000',

@@ -5,6 +5,8 @@ import {Provider} from "react-redux";
 import ReduxToastr from "react-redux-toastr";
 import configureStore from "reduxModel/configureStore";
 
+import Login from "page/login/Login";
+
 class App extends React.Component{
 
     render() {
@@ -13,7 +15,7 @@ class App extends React.Component{
                 <section>
                     <Router>
                         <Switch>
-                            <Route path="/login" component={null}/>
+                            <Route exact path="/" component={Login}/>
                         </Switch>
                     </Router>
                     <ReduxToastr

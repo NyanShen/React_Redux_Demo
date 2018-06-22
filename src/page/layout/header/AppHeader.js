@@ -3,16 +3,16 @@ import {Row, Col} from "antd";
 
 import './index.scss';
 
-class AppFooter  extends React.Component{
+class AppHeader  extends React.Component{
 
     render() {
         return (
-            <div className="app-footer">
+            <div className="app-header">
                 <div className="app-layout-container">
                     <Row type="flex" justify="center">
                         <Col span={24}>
-                            <div className="copyright small">
-                                版权所有@ 2018-06-21 Nyan Shen 保留所有权利 | ICP许可证号 粤B2-2018
+                            <div className="brand-logo-wrapper">
+                                <a href="#">React Reducer Demo</a>
                             </div>
                         </Col>
                     </Row>
@@ -22,4 +22,4 @@ class AppFooter  extends React.Component{
     }
 }
 
-export default AppFooter;
+export default AppHeader;

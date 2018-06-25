@@ -1,12 +1,13 @@
 import axios from 'axios';
+import {Promise} from "es6-promise";
 import {toastr} from "react-redux-toastr";
 
-//import LoginUser from "service/login-service/LoginUser";
+import LoginUser from "service/login-service/LoginUser";
 
 Promise.polyfill();
 
 const axiosService = axios.create();
-//const _loginUser = new LoginUser();
+const _loginUser = new LoginUser();
 
 axiosService.defaults.timeout = 5000;
 axiosService.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -21,7 +22,7 @@ axiosService.interceptors.request.use(
             config.$skipAuthHandler = true;
             delete config.params.$skipAuthHandler;
         }
-        //config.headers.Authorization = _loginUser.getAuthorization();
+        config.headers.Authorization = _loginUser.getAuthorization();
         return config;
     },
     (error) => {
@@ -36,7 +37,7 @@ axiosService.interceptors.response.use(
     (error) => {
         const err = error.response;
         if (err.status === 401 && !! err.config && !err.config.$skipAuthHandler) {
-            //_loginUser.clear();
+            _loginUser.clear();
             window.location = '/unauthorization';
         }
         toastr.error(err.data.message);

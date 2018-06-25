@@ -1,3 +1,4 @@
+import {Promise} from "es6-promise";
 import axiosService from 'service/axios-service/axiosService';
 
 Promise.polyfill();

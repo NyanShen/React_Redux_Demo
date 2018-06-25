@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => {
     }
 };
 
-class HomeContainer  extends React.Component{
+class Home  extends React.Component{
 
     render() {
         const {value, onIncrement, onDecrement} = this.props;
@@ -30,8 +30,8 @@ class HomeContainer  extends React.Component{
                             welcome Home
                             <div className="form-btn-group">
                                 <span>{value}</span>
-                                <Button type="dashed" onClick={onIncrement}>+</Button>
-                                <Button type="dashed" onClick={onDecrement}>-</Button>
+                                <Button type="dashed" htmlType="button" onClick={onIncrement}>+</Button>
+                                <Button type="dashed" htmlType="button" onClick={onDecrement}>-</Button>
                             </div>
                         </Col>
                     </Row>
@@ -43,6 +43,6 @@ class HomeContainer  extends React.Component{
 const  HomeContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(HomeContainer);
+)(Home);
 
 export default HomeContainer;

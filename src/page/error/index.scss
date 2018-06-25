@@ -1,0 +1,44 @@
+@import "../../styles/varibles";
+
+.client-exception {
+  margin-top: 20px;
+  text-align: center;
+  border: $border;
+  border-radius: $border-radius;
+
+  .icon-box {
+    padding-top: 60px;
+
+    .icon-body {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .icon {
+      font-size: 160px;
+    }
+
+    .icon-message {
+      padding-left: 30px;
+      h1 {
+        font-size: 72px;
+        line-height: 1;
+        margin-bottom: 10px;
+        margin-top: 20px;
+      }
+      span {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .message {
+    padding: 40px 0;
+    font-size: 36px;
+  }
+
+  .ant-dtn {
+    width: 300px;
+    height: 40px;
+    margin-bottom: 80px;
+  }
+}

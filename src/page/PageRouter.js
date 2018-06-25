@@ -2,7 +2,7 @@ import React from "react";
 import {Switch, Route, Redirect} from "react-router-dom";
 
 import AppLayout from "page/layout/AppLayout";
-import Home from "page/home/Home";
+import HomeContainer from "page/home/HomeContainer";
 
 class PageRouter  extends React.Component{
 
@@ -13,7 +13,7 @@ class PageRouter  extends React.Component{
                     <Route path='/' exact render={()=> (
                         <Redirect to="/home" />
                     )}/>
-                    <Route path="/home" component={Home}/>
+                    <Route path="/home" component={HomeContainer}/>
                 </Switch>
             </AppLayout>
         )

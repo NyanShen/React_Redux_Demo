@@ -1,0 +1,50 @@
+@import "../../styles/varibles";
+.app-login{
+  .login-header {
+    background: $bg-color;
+    margin-bottom: 20px;
+  }
+  .login-body {
+    background: $bg-color;
+    min-height: 550px;
+
+    .login-left {
+      width: 58%;
+      float: left;
+      img {
+        width: 600px;
+        height: 500px;
+      }
+    }
+    .login-right {
+      width: 42%;
+      float: right;
+      height: 500px;
+      border: $border;
+
+      .login-form {
+        margin: 65px 0 45px 78px;
+
+        .btn-block {
+          width: 320px;
+          height: 40px;
+          margin-top: 20px;
+        }
+
+        .btn, .ant-input {
+          height: 40px;
+        }
+
+        .ant-input-group-addon {
+          width: 82px;
+          background-color: $bg-color;
+          text-align: center;
+        }
+        .ant-input {
+          padding: 0 20px;
+          width: 238px;
+        }
+      }
+    }
+  }
+}

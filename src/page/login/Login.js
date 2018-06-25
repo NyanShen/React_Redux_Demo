@@ -4,9 +4,13 @@ import {Form, Input, Button} from "antd";
 
 import LoginHeader from "./LoginHeader";
 import AppFooter from "page/layout/footer/AppFooter";
+import LoginUser from "service/login-service/LoginUser";
+import LoginService from "service/login-service/LoginService";
 import "./index.scss";
 
 const FormItem = Form.Item;
+const _loginUser = new LoginUser();
+const _loginService = new LoginService();
 
 class LoginForm  extends React.Component{
 
@@ -14,8 +18,21 @@ class LoginForm  extends React.Component{
         super(props);
     }
 
-    loginHandler() {
-
+    loginHandler(e) {
+        e.preventDefault();
+        let loginInfo = {};
+        this.props.form.validateFields((err, values) => {
+            if(!err){
+                loginInfo = {
+                    username: values.username,
+                    password: values.password
+                }
+            }
+        });
+        _loginService.login(loginInfo).then(res => {
+            _loginUser.persistUser(res.data);
+            this.props.history.push('/home');
+        })
     }
 
     render() {
@@ -33,7 +50,7 @@ class LoginForm  extends React.Component{
                                     <img src="" alt="欢迎登陆react reducer demo"/>
                                 </div>
                                 <div className="login-right">
-                                    <Form onSubmit={() => this.loginHandler()} className="login-form">
+                                    <Form onSubmit={(e) => this.loginHandler(e)} className="login-form">
                                         <FormItem>
                                             {getFieldDecorator('username',{
                                                 rules: [{

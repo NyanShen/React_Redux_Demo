@@ -27,7 +27,8 @@ class PageRouter  extends React.Component{
             <AppLayout>
                 <Switch>
                     <Route path='/' exact render={()=> this.redirectDefault()}/>
-                    <PrivateRoute path="/home" component={HomeContainer}/>
+                    <Route path="/home" component={HomeContainer}/>
+                    <PrivateRoute path="/privateHome" component={HomeContainer}/>
                     <Route path="/unauthorized" component={Unauthorized}/>
                     <Route path="/forbidden" component={Forbidden}/>
                     <Route component={NotFound}/>

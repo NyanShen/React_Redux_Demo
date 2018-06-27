@@ -8,17 +8,16 @@ import "./index.scss";
 const mapStateToProps = state => {
     return {value: state.CounterReducer.count}
 };
-const mapDispatchToProps = dispatch => {
-    return {
-        onIncrement: (count) => dispatch(actions.increment(count)),
-        onDecrement: (count) => dispatch(actions.decrement(count)),
-    }
+const mapDispatchToProps =  {
+    onIncrement: actions.increment,
+    onDecrement: actions.decrement,
+    onIncrementIfOdd: actions.incrementIfOdd
 };
 
 class Home  extends React.Component{
 
     render() {
-        const {value, onIncrement, onDecrement} = this.props;
+        const {value, onIncrement, onDecrement, onIncrementIfOdd} = this.props;
         return (
             <div className="app-home">
                 <div className="app-layout-container">
@@ -32,6 +31,7 @@ class Home  extends React.Component{
                                 <span>{value}</span>
                                 <Button type="dashed" htmlType="button" onClick={onIncrement}>+</Button>
                                 <Button type="dashed" htmlType="button" onClick={onDecrement}>-</Button>
+                                <Button type="dashed" htmlType="button" onClick={onIncrementIfOdd}>add if odd</Button>
                             </div>
                         </Col>
                     </Row>

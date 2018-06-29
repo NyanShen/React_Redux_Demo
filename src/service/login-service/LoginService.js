@@ -1,9 +1,9 @@
 import {Promise} from "es6-promise";
 
-Promise.polyfill();
-
 import RequestService from "service/axios-service/RequestService";
 import AuthorizationService from "service/login-service/AuthorizationService";
+
+Promise.polyfill();
 
 const _requestService = new RequestService();
 const _authorizationService = new AuthorizationService();

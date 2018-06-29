@@ -6,13 +6,16 @@ import * as actions from "../../reduxModel/actions/CounterAction";
 import {closeModal, openModal, handleConfirm} from "reduxModel/actions/ModalAction";
 import MessageModal from "modals/message-modal/MessageModal";
 import DetailMapping from "page/demo/detail/DetailMapping";
+import UserService from "service/demo-service/UserService";
 import "./index.scss";
+
+const _userService = new UserService();
 
 const mapStateToProps = state => {
     return {
         value: state.CounterReducer.count,
-        message: state.MessageModalReducer.message,
-        messageModalVisible: state.MessageModalReducer.visible
+        message: state.ModalReducer.message,
+        messageModalVisible: state.ModalReducer.visible
     }
 };
 const mapDispatchToProps = {
@@ -26,9 +29,10 @@ const mapDispatchToProps = {
 
 class Home extends React.Component {
 
-    constructor(props) {
-        super(props);
-
+    componentDidMount() {
+        _userService.getUserList().then(res => {
+            console.info(res)
+        });
     }
 
     render() {

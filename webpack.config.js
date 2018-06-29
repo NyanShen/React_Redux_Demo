@@ -96,14 +96,16 @@ module.exports = {
         historyApiFallback: {
             index: '/dist'
         },
-        open: true,
+        //open: true,
         proxy: {
             '/react-redux-api/*': {
                 target: 'http://localhost:3000',
+                changeOrigin: true,
                 secure: false
             },
             '/api/*': {
                 target: 'http://localhost:12306',
+                changeOrigin: true,
                 secure: false
             }
         }

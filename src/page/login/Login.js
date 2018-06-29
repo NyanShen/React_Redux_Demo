@@ -26,13 +26,13 @@ class LoginForm  extends React.Component{
                 loginInfo = {
                     username: values.username,
                     password: values.password
-                }
+                };
+                _loginService.login(loginInfo).then(res => {
+                    _loginUser.persistUser(res.data);
+                    this.props.history.push('/home');
+                });
             }
         });
-        _loginService.login(loginInfo).then(res => {
-            _loginUser.persistUser(res.data);
-            this.props.history.push('/home');
-        })
     }
 
     render() {

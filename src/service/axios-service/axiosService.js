@@ -22,7 +22,7 @@ axiosService.interceptors.request.use(
             config.$skipAuthHandler = true;
             delete config.params.$skipAuthHandler;
         }
-        config.headers.Authorization = _loginUser.getAuthorization();
+        config.headers.Authorization = _loginUser.authorization();
         return config;
     },
     (error) => {

@@ -2,12 +2,12 @@ import {combineReducers} from "redux";
 import {reducer as toastr} from "react-redux-toastr";
 
 import CounterReducer from "./CounterReducer";
-import MessageModalReducer from "./MessageModalReducer";
+import ModalReducer from "./ModalReducer";
 
 const rootReducer = combineReducers({
     toastr,
     CounterReducer,
-    MessageModalReducer
+    ModalReducer
 });
 
 export default rootReducer;

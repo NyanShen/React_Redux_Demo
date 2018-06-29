@@ -2,22 +2,26 @@ import {OPENMODAL, CLOSEMODAL, CONFIRM} from "constant/ActionType";
 
 const initialState = {
     visible: false,
-    message: "Admin"
+    message: "Admin",
+    list: []
 };
 
-const MessageModalReducer = (state = initialState, action) => {
+const ModalReducer = (state = initialState, action) => {
     const visible = state.visible;
+    const list = state.list;
     let message = state.message;
     switch (action.type) {
         case OPENMODAL:
         case CLOSEMODAL:
             return {
+                list,
                 message,
                 visible: !visible
             };
         case CONFIRM:
             message = "confirm message";
             return {
+                list,
                 message: message,
                 visible: !visible
             };
@@ -26,4 +30,4 @@ const MessageModalReducer = (state = initialState, action) => {
     }
 };
 
-export default MessageModalReducer;
+export default ModalReducer;

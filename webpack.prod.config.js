@@ -85,6 +85,7 @@ module.exports = {
             util: path.join(__dirname, '/src/util'),
             page: path.join(__dirname, '/src/page'),
             service: path.join(__dirname, '/src/service'),
+            constant: path.join(__dirname, '/src/constant'),
             modals: path.join(__dirname, '/src/modals'),
             styles: path.join(__dirname, '/src/styles'),
             images: path.join(__dirname, '/src/images'),

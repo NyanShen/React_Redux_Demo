@@ -1,9 +1,9 @@
 import {createAction} from "redux-actions";
 
-import * as types from "../../constant/ActionType";
+import {INCREMENT, DECREMENT} from "constant/ActionType";
 
-export  const increment = createAction(types.INCREMENT);
-export  const decrement = createAction(types.DECREMENT);
+export  const increment = createAction(INCREMENT);
+export  const decrement = createAction(DECREMENT);
 
 export function incrementIfOdd() {
     return (dispatch, getStore) => {

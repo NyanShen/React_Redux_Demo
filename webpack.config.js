@@ -7,7 +7,7 @@ module.exports = {
     entry: ['./src/App.js'],
     output: {
         path: path.join(__dirname, 'dist'),
-        publicPath: "dist",
+        publicPath: "/dist",
         filename: 'js/App.js'
     },
     module: {
@@ -82,7 +82,9 @@ module.exports = {
             util: path.join(__dirname, '/src/util'),
             component: path.join(__dirname, '/src/component'),
             service: path.join(__dirname, '/src/service'),
+            constant: path.join(__dirname, '/src/constant'),
             page: path.join(__dirname, '/src/page'),
+            modals: path.join(__dirname, '/src/modals'),
             styles: path.join(__dirname, '/src/styles'),
             images: path.join(__dirname, '/src/images'),
             reduxModel: path.join(__dirname, '/src/reduxModel')

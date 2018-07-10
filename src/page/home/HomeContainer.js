@@ -7,6 +7,7 @@ import {fetchData} from "reduxModel/actions/MessageAction";
 import {closeModal, openModal, handleConfirm} from "reduxModel/actions/ModalAction";
 import MessageModal from "modals/message-modal/MessageModal";
 import DetailMapping from "page/demo/detail/DetailMapping";
+import PageTitle from "component/PageTitle";
 
 const mapStateToProps = state => {
     return {
@@ -37,6 +38,7 @@ class Home extends React.Component {
         const {message, openMessageModal, closeMessageModal, messageModalVisible, handleConfirm} = this.props;
         return (
             <div className="app-home">
+                <PageTitle pageTitle="Home container"/>
                 <div className="app-layout-container">
                     <Row type="flex" justify="center" className="app-layout-body">
                         <Col span={24} className="page-panel">

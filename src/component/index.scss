@@ -1,0 +1,13 @@
+@import "../styles/varibles";
+
+.app-page-title {
+  margin-bottom: 25px;
+  min-width: $body-min-width;
+  background: $primary-color;
+
+  .title {
+    color: #fff;
+    line-height: 2;
+    font-weight: bold;
+  }
+}

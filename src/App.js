@@ -8,6 +8,7 @@ import configureStore from "reduxModel/configureStore";
 import Login from "page/login/Login";
 import PageRouter from "page/PageRouter";
 import "./styles/main.scss";
+import "./styles/antd-theme/antd-main.less"
 
 const store = configureStore();
 

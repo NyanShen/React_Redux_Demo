@@ -1,20 +1,17 @@
 import React from "react";
-import {Link} from "react-router-dom";
 import {Row, Col} from "antd";
 
-import './index.scss';
+import "./index.scss";
 
-class AppHeader  extends React.Component{
+class PageTitle extends React.Component {
 
     render() {
         return (
-            <div className="app-header">
+            <div className="app-page-title">
                 <div className="app-layout-container">
                     <Row type="flex" justify="center">
                         <Col span={24}>
-                            <div className="brand-logo-wrapper">
-                                <Link to="#">React Reducer Demo</Link>
-                            </div>
+                            <span className="title">{this.props.pageTitle}</span>
                         </Col>
                     </Row>
                 </div>
@@ -23,4 +20,4 @@ class AppHeader  extends React.Component{
     }
 }
 
-export default AppHeader;
+export default PageTitle;

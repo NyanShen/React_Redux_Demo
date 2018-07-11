@@ -7,7 +7,7 @@ import {fetchData} from "reduxModel/actions/MessageAction";
 import {closeModal, openModal, handleConfirm} from "reduxModel/actions/ModalAction";
 import MessageModal from "modals/message-modal/MessageModal";
 import DetailMapping from "page/demo/detail/DetailMapping";
-import PageTitle from "component/PageTitle";
+import PageTitle from "component/page-title/PageTitle";
 
 const mapStateToProps = state => {
     return {

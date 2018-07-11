@@ -1,6 +1,6 @@
 @import "../../../styles/varibles";
 .app-header {
-  border-top: 3px solid;
+  border-top: 3px solid $primary-color;
   border-bottom: 1px solid $border-color;
   height: 84px;
   min-width: $body-min-width;

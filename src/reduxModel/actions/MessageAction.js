@@ -1,19 +1,7 @@
-import {RECEIVE_DATA} from "constant/ActionType";
+import {FETCH_MESSAGE_DATA} from "constant/ActionType";
+import {asyncActionHelper} from "reduxModel/actions/asyncActionHelper";
 import MessageService from "service/demo-service/MessageService";
 
 const _messageService = new MessageService();
 
-function receiveData(data) {
-    return {
-        type: RECEIVE_DATA,
-        list: data
-    }
-}
-
-export function fetchData() {
-    return (dispatch) => {
-        _messageService.getMessage().then(res => {
-            dispatch(receiveData(res.data))
-        })
-    }
-}
+export const fetchMessageData = asyncActionHelper(FETCH_MESSAGE_DATA, _messageService.getMessage);

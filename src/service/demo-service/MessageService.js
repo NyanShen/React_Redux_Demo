@@ -4,7 +4,7 @@ const _requestService = new RequestService();
 
 export default class MessageService {
 
-    getMessage () {
+    getMessage() {
         return _requestService.axiosRequest({
             url: "/api/message",
             method: "GET"

@@ -1,9 +1,9 @@
 import React from "react";
 import {connect} from "react-redux";
-import {Row, Col, Button} from "antd";
+import {Row, Col, Button, Spin} from "antd";
 
 import * as actions from "../../reduxModel/actions/CounterAction";
-import {fetchData} from "reduxModel/actions/MessageAction";
+import {fetchMessageData} from "reduxModel/actions/MessageAction";
 import {closeModal, openModal, handleConfirm} from "reduxModel/actions/ModalAction";
 import MessageModal from "modals/message-modal/MessageModal";
 import DetailMapping from "page/demo/detail/DetailMapping";
@@ -12,13 +12,14 @@ import PageTitle from "component/page-title/PageTitle";
 const mapStateToProps = state => {
     return {
         value: state.CounterReducer.count,
-        messageList: state.MessageReducer.message,
+        messageList: state.MessageReducer.data,
+        loading: state.MessageReducer.loading,
         message: state.ModalReducer.message,
         messageModalVisible: state.ModalReducer.visible
     }
 };
 const mapDispatchToProps = {
-    fetchMessageList: fetchData,
+    fetchMessageList: fetchMessageData,
     onIncrement: actions.increment,
     onDecrement: actions.decrement,
     onIncrementIfOdd: actions.incrementIfOdd,
@@ -48,16 +49,17 @@ class Home extends React.Component {
                                         size="small"
                                         onClick={openMessageModal}>change user</Button>
                             </div>
-                            <ul>
-                                {
-                                    messageList && messageList.map((message, index) => {
-                                        return (
-                                            <li key={index}>{message.text}</li>
-                                        )
-                                    })
-                                }
-                            </ul>
-
+                            <Spin spinning={this.props.loading} >
+                                <ul>
+                                    {
+                                        messageList && messageList.map((message, index) => {
+                                            return (
+                                                <li key={index}>{message.text}</li>
+                                            )
+                                        })
+                                    }
+                                </ul>
+                            </Spin>
                             <div className="form-btn-group">
                                 <span>{value}</span>
                                 <Button type="dashed" htmlType="button" onClick={onIncrement}>+</Button>

@@ -4,7 +4,7 @@ import {reducer as toastr} from "react-redux-toastr";
 import CounterReducer from "./CounterReducer";
 import ModalReducer from "./ModalReducer";
 import UserReducer from "./UserReducer";
-import MessageReducer from "./MessageReducer";
+import {MessageReducer} from "./MessageReducer";
 
 const rootReducer = combineReducers({
     toastr,

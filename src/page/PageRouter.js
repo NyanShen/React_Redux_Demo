@@ -8,6 +8,7 @@ import Forbidden from "page/error/Forbidden";
 import NotFound from "page/error/NotFound";
 import PrivateRoute from "page/PrivateRoute";
 import LoginUser from "service/login-service/LoginUser";
+import MailboxRouter from "page/mailbox/MailboxRouter";
 
 const _loginUser = new LoginUser();
 
@@ -28,6 +29,7 @@ class PageRouter  extends React.Component{
                 <Switch>
                     <Route path='/' exact render={()=> this.redirectDefault()}/>
                     <Route path="/home" component={HomeContainer}/>
+                    <PrivateRoute component={MailboxRouter}/>
                     <PrivateRoute path="/privateHome" component={HomeContainer}/>
                     <Route path="/unauthorized" component={Unauthorized}/>
                     <Route path="/forbidden" component={Forbidden}/>

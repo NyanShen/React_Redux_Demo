@@ -8,7 +8,7 @@ export  const decrement = createAction(DECREMENT);
 export function incrementIfOdd() {
     return (dispatch, getStore) => {
         const count = getStore().CounterReducer.count;
-        if (count % 2 ==0) {
+        if (count % 2 === 0) {
             return
         }
         dispatch(increment())

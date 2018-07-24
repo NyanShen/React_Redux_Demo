@@ -36,13 +36,13 @@
   margin: auto;
 
   .nav-tabs {
-    position: relative;
+    position: absolute;
     right: 0;
     bottom: 1px;
     border-bottom: none;
 
-    >li {
-      >a {
+    > li {
+      > a {
         margin-right: 0;
         border: $border;
         border-right: none;
@@ -55,36 +55,36 @@
           border-color: $border-color;
           color: $title-color;
         }
+      }
 
-        &:last-child >a {
-          border-right: $border;
-        }
+      &:last-child > a {
+        border-right: $border;
+      }
 
-        & {
-          border-top: 3px solid $bg-color;
-        }
+      & {
+        border-top: 3px solid $bg-color;
+      }
 
-        &.active {
-          border-top: 3px solid $primary-color;
+      &.active {
+        border-top: 3px solid $primary-color;
 
-          > a {
-            &,
-            &:hover,
-            &:focus {
-              border-top-color: #fff;
-              border-bottom-color: #fff;
-              background-color: #fff;
-              color: $primary-color;
-              font-weight: bold;
-            }
+        > a {
+          &,
+          &:hover,
+          &:focus {
+            border-top-color: #fff;
+            border-bottom-color: #fff;
+            background-color: #fff;
+            color: $primary-color;
+            font-weight: bold;
           }
+        }
 
-          + li > a {
-            &,
-            &:hover,
-            &:focus {
-              border-left: none;
-            }
+        + li > a {
+          &,
+          &:hover,
+          &:focus {
+            border-left: none;
           }
         }
       }

@@ -19,11 +19,9 @@ export default class MenuService {
                 });
                 const menu = {
                     menuTree,
-                    navigators,
-                    defaultState: this.getDefaultState(menuTree),
-                    modules: this.getModules(menuTree)
+                    navigators
                 };
-                typeof resolve === 'function' && resolve(menu);
+                typeof resolve === 'function' && resolve({data: menu});
             }).catch(error => {
                 typeof reject === 'function' && reject(error);
             })

@@ -5,13 +5,15 @@ import CounterReducer from "./CounterReducer";
 import ModalReducer from "./ModalReducer";
 import UserReducer from "./UserReducer";
 import {MessageReducer} from "./MessageReducer";
+import {MenuReducer} from "./MenuReducer";
 
 const rootReducer = combineReducers({
     toastr,
     CounterReducer,
     ModalReducer,
     UserReducer,
-    MessageReducer
+    MessageReducer,
+    MenuReducer
 });
 
 export default rootReducer;

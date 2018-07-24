@@ -9,25 +9,46 @@ import NotFound from "page/error/NotFound";
 import PrivateRoute from "page/PrivateRoute";
 import LoginUser from "service/login-service/LoginUser";
 import MailboxRouter from "page/mailbox/MailboxRouter";
+import {fetchMenuData} from "reduxModel/actions/MenuAction";
+import {connect} from "react-redux";
+import MenuService from "service/MenuService";
 
+const _menuService = new MenuService();
 const _loginUser = new LoginUser();
 
-class PageRouter  extends React.Component{
+const mapStateToProps = state => {
+    return {
+        menuData: state.MenuReducer.data
+    }
+};
+const mapDispatchToProps = {
+    fetchMenuData: fetchMenuData,
+};
+
+class PageRouter extends React.Component {
 
     constructor(props) {
         super(props);
         this.hasLogin = _loginUser.hasLogin();
     }
-    redirectDefault() {
-        const defaultRoute = <Redirect to="/home"/>;
-        const loginRoute = <Redirect to="/login"/>
+
+    componentDidMount() {
+        this.props.fetchMenuData();
+    }
+
+    redirectDefault(menuTree) {
+        const defaultState = _menuService.getDefaultState(menuTree);
+        const defaultRoute = <Redirect to={defaultState}/>;
+        const loginRoute = <Redirect to="/login"/>;
         return this.hasLogin ? defaultRoute : loginRoute;
     }
+
     render() {
         return (
+            this.props.menuData &&
             <AppLayout>
                 <Switch>
-                    <Route path='/' exact render={()=> this.redirectDefault()}/>
+                    <Route path='/' exact render={() => this.redirectDefault(this.props.menuData.menuTree)}/>
                     <Route path="/home" component={HomeContainer}/>
                     <PrivateRoute component={MailboxRouter}/>
                     <PrivateRoute path="/privateHome" component={HomeContainer}/>
@@ -40,4 +61,9 @@ class PageRouter  extends React.Component{
     }
 }
 
-export default PageRouter;
+const PageRouterContainer = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(PageRouter);
+
+export default PageRouterContainer;

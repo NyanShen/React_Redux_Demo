@@ -7,6 +7,7 @@ export const CONFIRM = 'CONFIRM';
 
 export const RECEIVE_DATA = 'RECEIVE_DATA';
 export const FETCH_MESSAGE_DATA = 'FETCH_MESSAGE_DATA';
+export const FETCH_MENU_DATA = 'FETCH_MENU_DATA';
 
 export const REQUEST = 'REQUEST';
 export const SUCCESS = 'SUCCESS';

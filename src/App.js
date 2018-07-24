@@ -6,7 +6,7 @@ import ReduxToastr from "react-redux-toastr";
 import configureStore from "reduxModel/configureStore";
 
 import Login from "page/login/Login";
-import PageRouter from "page/PageRouter";
+import PageRouterContainer from "page/PageRouterContainer";
 import "./styles/main.scss";
 import "./styles/antd-theme/antd-main.less"
 
@@ -21,7 +21,7 @@ class App extends React.Component{
                     <Router>
                         <Switch>
                             <Route path="/login" component={Login}/>
-                            <Route component={PageRouter}/>
+                            <Route component={PageRouterContainer}/>
                         </Switch>
                     </Router>
                     <ReduxToastr

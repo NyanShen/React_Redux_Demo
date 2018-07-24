@@ -29,7 +29,7 @@ class LoginForm  extends React.Component{
                 };
                 _loginService.login(loginInfo).then(res => {
                     _loginUser.persistUser(res.data);
-                    this.props.history.push('/home');
+                    this.props.history.push('/');
                 });
             }
         });

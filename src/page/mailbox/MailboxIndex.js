@@ -1,10 +1,29 @@
 import React from "react";
+import {Row, Col} from "antd";
+import NavigatorContainer from "component/navigator/Navigator";
 
 class MailboxIndex extends React.Component{
 
+    constructor(props) {
+        super(props);
+        this.nav = 'mail';
+    }
+
     render() {
         return (
-            <div>mailbox index</div>
+            <div className="app-mail">
+                <NavigatorContainer nav={this.nav}/>
+                <div className="app-layout-container">
+                    <Row type="flex" justify="center">
+                        <Col span={4}>
+
+                        </Col>
+                        <Col span={20}>
+                            <div>mail index</div>
+                        </Col>
+                    </Row>
+                </div>
+            </div>
         )
     }
 }

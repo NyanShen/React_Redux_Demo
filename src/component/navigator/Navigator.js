@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import MenuService from "service/MenuService";
 import LoginUser from "service/login-service/LoginUser";
-import {fetchMenuData} from "reduxModel/actions/MenuAction";
 import "./index.scss";
 
 const _menuService = new MenuService();
@@ -16,9 +15,6 @@ const mapStateToProps = state => {
         menuData: state.MenuReducer.data
     }
 };
-const mapDispatchToProps = {
-    fetchMenuData: fetchMenuData,
-};
 
 class Navigator extends React.Component {
 
@@ -27,11 +23,6 @@ class Navigator extends React.Component {
         this.state = {
             currentType: props.nav
         }
-
-    }
-
-    componentDidMount() {
-        this.props.fetchMenuData();
     }
 
     activeItemClass(item) {
@@ -66,8 +57,7 @@ class Navigator extends React.Component {
 
 
 const NavigatorContainer = connect(
-    mapStateToProps,
-    mapDispatchToProps
+    mapStateToProps
 )(Navigator);
 
 export default NavigatorContainer;

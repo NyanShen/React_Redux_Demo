@@ -1,6 +1,6 @@
 import React from "react";
 import {Row, Col} from "antd";
-import NavigatorContainer from "component/navigator/Navigator";
+import Navigator from "component/navigator/Navigator";
 
 class MailboxIndex extends React.Component{
 
@@ -12,7 +12,7 @@ class MailboxIndex extends React.Component{
     render() {
         return (
             <div className="app-mail">
-                <NavigatorContainer nav={this.nav}/>
+                <Navigator nav={this.nav}/>
                 <div className="app-layout-container">
                     <Row type="flex" justify="center">
                         <Col span={4}>

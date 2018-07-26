@@ -55,9 +55,4 @@ class Navigator extends React.Component {
     }
 }
 
-
-const NavigatorContainer = connect(
-    mapStateToProps
-)(Navigator);
-
-export default NavigatorContainer;
+export default connect(mapStateToProps)(Navigator);

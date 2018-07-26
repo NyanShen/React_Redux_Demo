@@ -61,9 +61,4 @@ class PageRouter extends React.Component {
     }
 }
 
-const PageRouterContainer = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(PageRouter);
-
-export default PageRouterContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(PageRouter);

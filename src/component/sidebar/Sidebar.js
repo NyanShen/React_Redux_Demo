@@ -1,13 +1,23 @@
 import React from "react";
+import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import {Icon} from "antd";
 import _ from "lodash";
-import "index.scss"
+import "./index.scss"
 
-const menus = [];
-const currentState = '';
+const mapStateToProps = state => {
+    return {
+        menuData: state.MenuReducer.data
+    }
+};
 
 class Sidebar extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.currentState = props.location.pathname;
+        this.menus = _.result(props.menuData.menuTree, props.nav);
+    }
 
     componentDidMount() {
         const defaultNavItem = this.getDefaultNavItem();
@@ -23,8 +33,8 @@ class Sidebar extends React.Component {
     }
 
     getDefaultNavItem() {
-        const currentState = currentState;
-        return _.find(menus, function (navItem) {
+        const currentState = this.currentState;
+        return _.find(this.menus, function (navItem) {
             if (navItem.state === currentState || _.some(navItem.childItems, {state: currentState})) {
                 return navItem;
             }
@@ -44,7 +54,7 @@ class Sidebar extends React.Component {
     }
 
     setActiveChildNavItem(childNavItems) {
-        const currentState = currentState;
+        const currentState = this.currentState;
         this.clearActiveStatusWithChildItems();
         if (_.isArray(childNavItems)) {
             childNavItems.forEach(function (navItem) {
@@ -70,13 +80,13 @@ class Sidebar extends React.Component {
     }
 
     clearParentActiveStatus() {
-        menus.forEach(function (navItem) {
+        this.menus.forEach(function (navItem) {
             navItem.isActive = false;
         })
     }
 
     clearActiveStatusWithChildItems() {
-        menus.forEach(function (navItem) {
+        this.menus.forEach(function (navItem) {
             navItem.isActive = false;
             navItem.childItems.forEach(function (childItem) {
                 childItem.isActive = false;
@@ -110,10 +120,10 @@ class Sidebar extends React.Component {
             <aside className="app-sidebar">
                 <ul className="list-unstyled menu">
                     {
-                        menus.map((navItem, index) => {
+                        this.menus && this.menus.map((navItem, index) => {
                             return (
                                 <li key={'li_' + index} className={this.openOrActiveClass(navItem)}>
-                                   <span key={'span' + index}
+                                   <span key={'span_' + index}
                                          className="item-name nav-item-content"
                                          onClick={() => {
                                              this.setActiveNavItem(navItem);
@@ -151,4 +161,4 @@ class Sidebar extends React.Component {
     }
 }
 
-export default withRouter(Sidebar);
+export default withRouter(connect(mapStateToProps)(Sidebar));

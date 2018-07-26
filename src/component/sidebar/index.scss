@@ -28,12 +28,13 @@
     background-color: $item-active-bg-color;
     a {
       font-weight: bold;
+      color: $primary-color;
     }
   }
 
   .nav-item {
     .item-name {
-      margin-right: 30px;
+      margin-left: 30px;
       height: 50px;
       line-height: 50px;
     }
@@ -45,42 +46,42 @@
       font-size: $font-sm;
       color: $title-color;
     }
-  }
 
-  &.is-open {
-    .anticon {
-      color: $primary-color;
+    &.is-open {
+      .anticon {
+        color: $primary-color;
+      }
+      .nav-item-content {
+        color: $title-color;
+        font-weight: bold;
+      }
     }
-    .nav-item-content {
-      color: $title-color;
-      font-weight: bold;
+    &:hover {
+      .anticon,
+      .nav-item-content {
+        color: $primary-color;
+      }
     }
-  }
-  &:hover {
-    .anticon,
-    .nav-item-content {
-      color: $primary-color;
-    }
-  }
-  &:active {
-    .nav-item-content {
-      color: $primary-color;
-      font-weight: bold;
-    }
-  }
-  .sub-menu {
-    border-top: none;
-    font-size: $font-sm;
-
-    .item-name {
-      height: 40px;
-      line-height: 40px;
-    }
-
-    .child-nav-item.active {
-      .item-name {
+    &:active {
+      .nav-item-content {
         color: $primary-color;
         font-weight: bold;
+      }
+    }
+    .sub-menu {
+      border-top: none;
+      font-size: $font-sm;
+
+      .item-name {
+        height: 40px;
+        line-height: 40px;
+      }
+
+      .child-nav-item.active {
+        .item-name {
+          color: $primary-color;
+          font-weight: bold;
+        }
       }
     }
   }

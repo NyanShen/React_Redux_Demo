@@ -24,6 +24,8 @@
   }
 
   .active {
+    color: $primary-color;
+    font-weight: bold;
     border-left: 3px solid $primary-color;
     background-color: $item-active-bg-color;
     a {

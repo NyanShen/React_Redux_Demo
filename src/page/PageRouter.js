@@ -8,11 +8,11 @@ import Forbidden from "page/error/Forbidden";
 import NotFound from "page/error/NotFound";
 import PrivateRoute from "page/PrivateRoute";
 import LoginUser from "service/login-service/LoginUser";
+import MailboxRouter from "page/mailbox/MailboxRouter";
 import {fetchMenuData} from "reduxModel/actions/MenuAction";
 import {connect} from "react-redux";
 import MenuService from "service/MenuService";
-import ProcessLaunch from "page/process/launch/ProcessLaunch";
-import MailboxIndex from "page/mailbox/MailboxIndex";
+import ProcessRouter from "page/process/ProcessRouter";
 
 const _menuService = new MenuService();
 const _loginUser = new LoginUser();
@@ -51,9 +51,8 @@ class PageRouter extends React.Component {
                 <Switch>
                     <Route path='/' exact render={() => this.redirectDefault(this.props.menuData.menuTree)}/>
                     <Route path="/home" component={HomeContainer}/>
-                    <Route path="/mail01.inbox" component={MailboxIndex}/>
-                    <Route path="/process.personal-task-pool" component={ProcessLaunch}/>
-                    <Route path="/process.launch" component={ProcessLaunch}/>
+                    <PrivateRoute path="/mail(.*)?" component={MailboxRouter}/>
+                    <PrivateRoute  path="/process(.*)?" component={ProcessRouter}/>
                     <PrivateRoute path="/privateHome" component={HomeContainer}/>
                     <Route path="/unauthorized" component={Unauthorized}/>
                     <Route path="/forbidden" component={Forbidden}/>

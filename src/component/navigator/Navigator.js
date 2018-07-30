@@ -8,7 +8,6 @@ import "./index.scss";
 const _menuService = new MenuService();
 
 const _loginUser = new LoginUser();
-const isLogin = _loginUser.hasLogin();
 
 const mapStateToProps = state => {
     return {
@@ -20,6 +19,7 @@ class Navigator extends React.Component {
 
     constructor(props) {
         super(props);
+        this.isLogin = _loginUser.hasLogin();
         this.state = {
             currentType: props.nav
         }
@@ -51,7 +51,7 @@ class Navigator extends React.Component {
                     }
                 )}
             </ul>);
-        return (<div className="app-header-nav">{isLogin ? navigator : null}</div>)
+        return (<div className="app-header-nav">{this.isLogin ? navigator : null}</div>)
     }
 }
 

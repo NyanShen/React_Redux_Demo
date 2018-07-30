@@ -7,9 +7,6 @@ import "./index.scss";
 
 const _loginUser = new LoginUser();
 const _loginService = new LoginService();
-const isLogin =_loginUser.hasLogin();
-const fullName = isLogin ? _loginUser.getUser().fullName : null;
-const username = isLogin ? _loginUser.getUser().username : null;
 
 class LoginNav extends React.Component{
 
@@ -23,6 +20,10 @@ class LoginNav extends React.Component{
     }
 
     render() {
+        const isLogin =_loginUser.hasLogin();
+        const fullName = isLogin ? _loginUser.getUser().fullName : null;
+        const username = isLogin ? _loginUser.getUser().username : null;
+
         const loginInfo = (
           <ul className="login-nav">
               <li>

@@ -12,3 +12,5 @@ export const FETCH_MENU_DATA = 'FETCH_MENU_DATA';
 export const REQUEST = 'REQUEST';
 export const SUCCESS = 'SUCCESS';
 export const FAILURE = 'FAILURE';
+
+export const SET_PLAN = 'SET_PLAN';

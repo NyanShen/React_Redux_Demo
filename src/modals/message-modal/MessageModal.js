@@ -9,6 +9,7 @@ const MessageModal = props => {
         <Modal title={title}
                okText="confirm"
                cancelText="cancel"
+               width={875}
                onOk={handleOk}
                onCancel={handleCancel}
                visible={modalVisible}>

@@ -7,7 +7,7 @@ class DetailMapping extends React.Component{
 
     render () {
         const detailMapping = {
-            "plan": <PlanDetail />,
+            "plan": <PlanDetail confirmPlan={(record) => this.props.confirmPlan(record)}/>,
             "manager": <ManagerDetail />
         };
         return (

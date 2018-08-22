@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {Row, Col, Button, Spin} from "antd";
 
 import * as actions from "../../reduxModel/actions/CounterAction";
-import {fetchMessageData} from "reduxModel/actions/MessageAction";
+import {fetchMessageData, setPlan} from "reduxModel/actions/MessageAction";
 import {closeModal, openModal, handleConfirm} from "reduxModel/actions/ModalAction";
 import MessageModal from "modals/message-modal/MessageModal";
 import DetailMapping from "page/demo/detail/DetailMapping";
@@ -25,7 +25,8 @@ const mapDispatchToProps = {
     onIncrementIfOdd: actions.incrementIfOdd,
     openMessageModal: openModal,
     closeMessageModal: closeModal,
-    handleConfirm: handleConfirm
+    handleConfirm: handleConfirm,
+    setPlan: setPlan
 };
 
 @connect(mapStateToProps, mapDispatchToProps)
@@ -33,6 +34,10 @@ class Home extends React.Component {
 
     componentDidMount() {
         this.props.fetchMessageList();
+    }
+
+    confirmPlan(record) {
+        this.props.setPlan(record.name);
     }
 
     render() {
@@ -74,7 +79,7 @@ class Home extends React.Component {
                               modalVisible={messageModalVisible}
                               handleOk={handleConfirm}
                               handleCancel={closeMessageModal}>
-                    <DetailMapping type="plan"/>
+                    <DetailMapping type="plan" confirmPlan={(record) => this.confirmPlan(record)}/>
                 </MessageModal>
             </div>
         )

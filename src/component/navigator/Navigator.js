@@ -15,6 +15,7 @@ const mapStateToProps = state => {
     }
 };
 
+@connect(mapStateToProps)
 class Navigator extends React.Component {
 
     constructor(props) {
@@ -55,4 +56,4 @@ class Navigator extends React.Component {
     }
 }
 
-export default connect(mapStateToProps)(Navigator);
+export default Navigator;

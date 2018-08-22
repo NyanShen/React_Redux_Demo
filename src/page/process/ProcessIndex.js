@@ -11,6 +11,7 @@ const mapStateToProps = state => {
     }
 };
 
+@connect(mapStateToProps)
 class ProcessIndex extends React.Component{
 
     constructor(props) {
@@ -39,4 +40,4 @@ class ProcessIndex extends React.Component{
     }
 }
 
-export default connect(mapStateToProps)(ProcessIndex);
+export default ProcessIndex;

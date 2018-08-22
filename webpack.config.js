@@ -20,6 +20,7 @@ module.exports = {
                     options: {
                         presets: ['env', 'react'],
                         plugins: [
+                            "transform-decorators-legacy",
                             [
                                 "import",
                                 [

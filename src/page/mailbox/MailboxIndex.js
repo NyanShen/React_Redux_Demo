@@ -10,7 +10,7 @@ const mapStateToProps = state => {
         menuData: state.MenuReducer.data
     }
 };
-
+@connect(mapStateToProps)
 class MailboxIndex extends React.Component{
 
     constructor(props) {
@@ -39,4 +39,4 @@ class MailboxIndex extends React.Component{
     }
 }
 
-export default connect(mapStateToProps)(MailboxIndex);
+export default MailboxIndex;

@@ -11,6 +11,7 @@ const mapStateToProps = state => {
     }
 };
 
+@connect(mapStateToProps)
 class Sidebar extends React.Component {
 
     constructor(props) {
@@ -161,4 +162,4 @@ class Sidebar extends React.Component {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(Sidebar));
+export default withRouter(Sidebar);

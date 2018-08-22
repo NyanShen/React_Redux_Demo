@@ -28,6 +28,7 @@ const mapDispatchToProps = {
     handleConfirm: handleConfirm
 };
 
+@connect(mapStateToProps, mapDispatchToProps)
 class Home extends React.Component {
 
     componentDidMount() {
@@ -80,9 +81,4 @@ class Home extends React.Component {
     }
 }
 
-const HomeContainer = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Home);
-
-export default HomeContainer;
+export default Home;

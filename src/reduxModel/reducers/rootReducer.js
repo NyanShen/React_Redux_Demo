@@ -2,7 +2,7 @@ import {combineReducers} from "redux";
 import {reducer as toastr} from "react-redux-toastr";
 
 import CounterReducer from "./CounterReducer";
-import ModalReducer from "./ModalReducer";
+import ListModalReducer from "./ListModalReducer";
 import UserReducer from "./UserReducer";
 import {MessageReducer} from "./MessageReducer";
 import {MenuReducer} from "./MenuReducer";
@@ -10,7 +10,7 @@ import {MenuReducer} from "./MenuReducer";
 const rootReducer = combineReducers({
     toastr,
     CounterReducer,
-    ModalReducer,
+    ListModalReducer: ListModalReducer,
     UserReducer,
     MessageReducer,
     MenuReducer

@@ -10,6 +10,7 @@ const MessageModal = props => {
                okText="confirm"
                cancelText="cancel"
                width={875}
+               footer={null}
                onOk={handleOk}
                onCancel={handleCancel}
                visible={modalVisible}>

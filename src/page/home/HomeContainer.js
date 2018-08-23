@@ -3,8 +3,8 @@ import {connect} from "react-redux";
 import {Row, Col, Button, Spin} from "antd";
 
 import * as actions from "../../reduxModel/actions/CounterAction";
-import {fetchMessageData, setPlan} from "reduxModel/actions/MessageAction";
-import {closeModal, openModal, handleConfirm} from "reduxModel/actions/ModalAction";
+import {fetchMessageData} from "reduxModel/actions/MessageAction";
+import {visibleModal, setRecord} from "reduxModel/actions/ListModalAction";
 import MessageModal from "modals/message-modal/MessageModal";
 import DetailMapping from "page/demo/detail/DetailMapping";
 import PageTitle from "component/page-title/PageTitle";
@@ -12,10 +12,10 @@ import PageTitle from "component/page-title/PageTitle";
 const mapStateToProps = state => {
     return {
         value: state.CounterReducer.count,
-        messageList: state.MessageReducer.data,
         loading: state.MessageReducer.loading,
-        message: state.ModalReducer.message,
-        messageModalVisible: state.ModalReducer.visible
+        messageList: state.MessageReducer.data,
+        message: state.ListModalReducer.record,
+        messageModalVisible: state.ListModalReducer.visible
     }
 };
 const mapDispatchToProps = {
@@ -23,10 +23,8 @@ const mapDispatchToProps = {
     onIncrement: actions.increment,
     onDecrement: actions.decrement,
     onIncrementIfOdd: actions.incrementIfOdd,
-    openMessageModal: openModal,
-    closeMessageModal: closeModal,
-    handleConfirm: handleConfirm,
-    setPlan: setPlan
+    visibleMessageModal: visibleModal,
+    setRecord: setRecord
 };
 
 @connect(mapStateToProps, mapDispatchToProps)
@@ -37,23 +35,23 @@ class Home extends React.Component {
     }
 
     confirmPlan(record) {
-        this.props.setPlan(record.name);
+        this.props.setRecord(record);
     }
 
     render() {
         const {value, onIncrement, onDecrement, onIncrementIfOdd, messageList} = this.props;
-        const {message, openMessageModal, closeMessageModal, messageModalVisible, handleConfirm} = this.props;
+        const {message, visibleMessageModal, messageModalVisible} = this.props;
         return (
             <div className="app-home">
                 <PageTitle pageTitle="Home container"/>
                 <div className="app-layout-container">
                     <Row type="flex" justify="center" className="app-layout-body">
                         <Col span={24} className="page-panel">
-                            <div>welcome Home,{message}
+                            <div>welcome Home,{message.name}
                                 <Button type="primary"
                                         htmlType="button"
                                         size="small"
-                                        onClick={openMessageModal}>change user</Button>
+                                        onClick={visibleMessageModal}>change user</Button>
                             </div>
                             <Spin spinning={this.props.loading} >
                                 <ul>
@@ -77,8 +75,7 @@ class Home extends React.Component {
                 </div>
                 <MessageModal title="task detail info"
                               modalVisible={messageModalVisible}
-                              handleOk={handleConfirm}
-                              handleCancel={closeMessageModal}>
+                              handleCancel={visibleMessageModal}>
                     <DetailMapping type="plan" confirmPlan={(record) => this.confirmPlan(record)}/>
                 </MessageModal>
             </div>

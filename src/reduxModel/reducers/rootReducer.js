@@ -6,14 +6,18 @@ import ListModalReducer from "./ListModalReducer";
 import UserReducer from "./UserReducer";
 import {MessageReducer} from "./MessageReducer";
 import {MenuReducer} from "./MenuReducer";
+import ProcessReducer from "reduxModel/reducers/ProcessReducer";
+import {MailReducer} from "reduxModel/reducers/MailReducer";
 
 const rootReducer = combineReducers({
     toastr,
     CounterReducer,
-    ListModalReducer: ListModalReducer,
+    ListModalReducer,
     UserReducer,
     MessageReducer,
-    MenuReducer
+    MenuReducer,
+    ProcessReducer,
+    MailReducer
 });
 
 export default rootReducer;

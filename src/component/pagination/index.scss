@@ -1,0 +1,14 @@
+@import "../../styles/varibles";
+.pagination-panel {
+  text-align: center;
+  margin-top: 20px;
+
+  .ant-pagination {
+    .ant-pagination-item-active {
+      background-color: $primary-color;
+      a {
+        color: $white;
+      }
+    }
+  }
+}

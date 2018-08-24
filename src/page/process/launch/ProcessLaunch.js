@@ -2,6 +2,7 @@ import React from "react";
 import {Steps, Button} from "antd";
 
 import ProcessIndex from "page/process/ProcessIndex";
+import MailPart from "page/process/launch/MailPart";
 import "./index.scss";
 
 const Step = Steps.Step;
@@ -27,13 +28,13 @@ class ProcessRouter extends React.Component{
 
     render() {
         const steps = [{
-            title: 'First',
-            content: 'First-content',
+            title: '邮件信息',
+            content: <MailPart />,
         }, {
-            title: 'Second',
+            title: '业务信息',
             content: 'Second-content',
         }, {
-            title: 'Last',
+            title: '流程信息',
             content: 'Last-content',
         }];
         const { currentStep } = this.state;

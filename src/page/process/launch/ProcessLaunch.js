@@ -1,12 +1,25 @@
 import React from "react";
+import {connect} from "react-redux";
 import {Steps, Button} from "antd";
 
-import ProcessIndex from "page/process/ProcessIndex";
 import MailPart from "page/process/launch/MailPart";
+import ProcessIndex from "page/process/ProcessIndex";
+import {initState} from "reduxModel/actions/ProcessAction";
 import "./index.scss";
+
+const mapStateToProps = state => {
+    return {
+        selectedMails: state.ProcessReducer.selectedMails
+    }
+};
+
+const mapDispatchToProps = {
+    initProcessState: initState
+};
 
 const Step = Steps.Step;
 
+@connect(mapStateToProps, mapDispatchToProps)
 class ProcessRouter extends React.Component{
 
     constructor(props) {
@@ -14,6 +27,10 @@ class ProcessRouter extends React.Component{
         this.state = {
             currentStep: 0
         }
+    }
+
+    componentDidMount() {
+        this.props.initProcessState();
     }
 
     next() {

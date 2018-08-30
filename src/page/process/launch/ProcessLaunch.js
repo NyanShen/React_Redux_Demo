@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {Steps, Button} from "antd";
 
 import MailPart from "page/process/launch/MailPart";
+import BusinessPart from "page/process/launch/BusinessPart";
 import ProcessIndex from "page/process/ProcessIndex";
 import {initState} from "reduxModel/actions/ProcessAction";
 import "./index.scss";
@@ -49,7 +50,7 @@ class ProcessRouter extends React.Component{
             content: <MailPart />,
         }, {
             title: '业务信息',
-            content: 'Second-content',
+            content: <BusinessPart />,
         }, {
             title: '流程信息',
             content: 'Last-content',

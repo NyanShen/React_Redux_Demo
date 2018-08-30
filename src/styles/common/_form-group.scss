@@ -1,0 +1,43 @@
+.form-group-inline {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  height: 30px;
+
+  .form-item {
+    float: left;
+    margin-right: 40px;
+
+    .form-label {
+      float: left;
+      width: 120px;
+      line-height: 2;
+      padding-right: 15px;
+    }
+
+    .form-edit {
+      float: right;
+      .ant-input:hover {
+        border-color: $title-color;
+      }
+
+      .ant-input,
+      .form-control {
+        width: 250px;
+      }
+    }
+  }
+
+  .form-button {
+    margin-right: 10px;
+  }
+}
+
+.form-group-inline-small {
+  height: 21px;
+
+  .form-item {
+    .form-label {
+      line-height: 1.5;
+    }
+  }
+}

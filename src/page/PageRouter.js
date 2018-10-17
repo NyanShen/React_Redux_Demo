@@ -26,6 +26,7 @@ const mapDispatchToProps = {
     fetchMenuData: fetchMenuData,
 };
 
+@connect(mapStateToProps, mapDispatchToProps)
 class PageRouter extends React.Component {
 
     constructor(props) {
@@ -63,4 +64,4 @@ class PageRouter extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PageRouter);
+export default PageRouter;

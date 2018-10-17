@@ -30,7 +30,7 @@ class MailboxIndex extends React.Component{
                             <Sidebar nav={this.nav}/>
                         </Col>
                         <Col span={20} className="page-panel">
-                            <div>mail index</div>
+                            {this.props.children}
                         </Col>
                     </Row>
                 </div>

@@ -83,6 +83,7 @@ module.exports = {
             node_modules: path.join(__dirname, '/node_modules'),
             component: path.join(__dirname, '/src/component'),
             util: path.join(__dirname, '/src/util'),
+            hoc: path.join(__dirname, '/src/hoc'),
             page: path.join(__dirname, '/src/page'),
             service: path.join(__dirname, '/src/service'),
             constant: path.join(__dirname, '/src/constant'),

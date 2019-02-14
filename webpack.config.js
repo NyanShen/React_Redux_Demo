@@ -81,6 +81,7 @@ module.exports = {
         alias: {
             node_modules: path.join(__dirname, '/node_modules'),
             util: path.join(__dirname, '/src/util'),
+            hoc: path.join(__dirname, '/src/hoc'),
             component: path.join(__dirname, '/src/component'),
             service: path.join(__dirname, '/src/service'),
             constant: path.join(__dirname, '/src/constant'),
